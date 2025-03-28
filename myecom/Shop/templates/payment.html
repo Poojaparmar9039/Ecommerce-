@@ -1,0 +1,60 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Payment Details{% endblock %}
+{% block content %}
+<section>
+    <link rel="stylesheet" href="{% static 'payment.css' %}">
+    <div class="payment-details">
+        <h1>Select a payment method</h1>
+        <form action="{% url 'place_order' item.id %}" method="get">
+            <h4>Recommended</h4>
+            <div class="pay">
+                <div class="payment-option">
+                    <input type="radio" id="cash" name="payment" value="cash">
+                    <label for="cash">Cash on Delivery/Pay on Delivery</label>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="phonepe" name="payment" value="phonepe">
+                    <label for="phonepe">Phonepe</label>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="google" name="payment" value="google">
+                    <label for="google">Google Pay</label>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="paytm" name="payment" value="paytm">
+                    <label for="paytm">Paytm</label>
+                </div>
+            </div>
+            
+            <h4>CREDIT & DEBIT CARDS</h4>
+            <div class="card-section">
+                <div class="card">
+                    <input type="radio" id="new-card" name="payment" value="new-card">
+                    <label for="new-card">Add a new credit or debit card</label>
+                </div>
+            </div>
+            
+            <h4>More ways to pay</h4>
+            <div class="more-payments">
+                <div class="payment-option">
+                    <input type="radio" id="emi" name="payment" value="emi">
+                    <label for="emi">EMI</label>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="netbanking" name="payment" value="netbanking">
+                    <label for="netbanking">Net Banking</label>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href=""><button type="submit">Continue</button></a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

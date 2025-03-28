@@ -1,0 +1,179 @@
+/* placeorder.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.order-summary {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order h1 {
+    color: #232f3e;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.order h2 {
+    color: #232f3e;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.ship {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.ship p {
+    margin: 8px 0;
+    color: #333;
+}
+
+.ship h2 {
+    color: #ff9900;
+    font-weight: 700;
+}
+
+.detail {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.detail p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.detail p:last-child {
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px solid #eee;
+}
+
+.payment-type {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.payment-type h2 {
+    color: #232f3e;
+    text-transform: capitalize;
+}
+
+.payment-type p {
+    color: #555;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.address {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.address h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.address p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.address p:last-child {
+    color: #ff9900;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.order-detail {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-detail img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.order-detail h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.order-detail p {
+    color: #555;
+    margin: 3px 0;
+}
+
+.order-detail p:nth-of-type(3) {
+    color: #ff9900;
+    font-weight: 500;
+}
+
+.order button {
+    background-color: #ff9900;
+    color: #232f3e;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #f08c00;
+}
+
+@media (max-width: 600px) {
+    .order-summary {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .order h1 {
+        font-size: 20px;
+    }
+    
+    button {
+        padding: 10px 20px;
+    }
+}

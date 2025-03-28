@@ -1,0 +1,68 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Order Summary{% endblock %}
+{% block content %}
+<section>
+    <link rel="stylesheet" href="{% static 'placeorder.css' %}">
+    <div class="order-summary">
+        <div class="order">
+            <h1>order now</h1>
+            <div class="ship">
+                <p>Shipping to: <b>Sector 34, in front of JK building 280/7, UP</b></p>
+                <a href="{% url 'Address' %}">Add address + </a>
+        
+                <div class="detail">
+                       
+                        <p>Item: ${{ total_price }}</p>
+                        <p>Subtotal: ${{ total_price }}</p>        
+                    <p>Delivery: $59</p>
+                    <p>Cash/pay: $200</p>
+                    
+                    {% if items %}
+                        <p><b>Order Total:</b> ${{ total_price|add:259 }}</p>
+                    {% else %}
+                        <p><b>Order Total:</b> ${{ item.price|add:259 }}</p>
+                    {% endif %}
+                </div>
+        
+                <h2>Your Savings: $4567 (61%)</h2>
+                <p>Free delivery</p>
+                <p>Discount price</p>
+            </div>
+       
+            <div class="payment-type">
+                <h2><b>paying with pay on delivery /cash on delivery</b></h2>
+                <p>Scan and pay at delivery with shopify upi and win rewards uptp $500</p>
+            </div>
+            <div class="address">
+                <h1>pooja parmar</h1>
+                <p>2,mittak manglik bhavan</p>
+               <p>Add delivery instruction</p>
+            </div>
+            <h1>Get it by</h1>
+            <p>Thursday, 15th july</p>
+            <div class="order-detail">
+                {% if items %}
+                    {% for i in items %}
+                        <img src="{{ i.image.url }}" alt="">
+                        <h1>{{ i.product_name }}</h1>
+                        <p>{{ i.price }}</p>
+                        <p>Quantity: 1</p>
+                        <p>You save $2888</p>
+                        <p>Sold by: Guak</p>
+                    {% endfor %}
+                {% elif item %}
+                    <img src="{{ item.image.url }}" alt="">
+                    <h1>{{ item.product_name }}</h1>
+                    <p>{{ item.price }}</p>
+                    <p>Quantity: 1</p>
+                    <p>You save $2888</p>
+                    <p>Sold by: Guak</p>
+                {% endif %}
+            </div>
+            
+            <a href="{% url 'successful' %}"><button>Place order</button></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

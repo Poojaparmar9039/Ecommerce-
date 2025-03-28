@@ -1,0 +1,17 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Order Summary{% endblock %}
+{% block content %}
+<body>
+    
+
+    <link rel="stylesheet" href="{% static 'successful.css' %}">
+
+    <div>
+        <h1>Order Placed Successfully</h1>
+        <h2>Thank you for shopping with us.......</h2>
+        <img src="{% static 'media/icon-for-product-24.jpg' %}" alt="">
+    </div>
+</body>
+ {% endblock %}
+ {% block footer %}{% endblock %}

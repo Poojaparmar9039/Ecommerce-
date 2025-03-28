@@ -1,0 +1,155 @@
+/* Container Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Product Section */
+.product-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Product Details */
+.product-details {
+    padding: 1rem;
+}
+
+.product-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.price {
+    font-size: 2rem;
+    color: #2c5282;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* Features Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    background-color: #f7fafc;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Buy Button */
+.buy-button {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin: 2rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #2b6cb0;
+}
+
+/* Guarantee Section */
+.guarantee {
+    background-color: #ebf8ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.guarantee h3 {
+    color: #2c5282;
+    margin-bottom: 0.5rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+.testimonial strong {
+    color: #2d3748;
+    display: block;
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-details h1 {
+        font-size: 2rem;
+    }
+    
+    .price {
+        font-size: 1.5rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}

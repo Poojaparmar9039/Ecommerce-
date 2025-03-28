@@ -1,0 +1,36 @@
+{% extends 'Home.html' %}
+{% load static %}
+
+{% block title %}Ecommerce product{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'category.css' %}">
+    <section>
+
+         <!--display in grid -->
+       {% for item in category %}
+       <div class="product-category">
+          
+            <div class="product-image">
+            <a href="{% url 'cartDetail' item.id %}">
+                <img src="{{item.image.url}}" alt="">
+            </a>
+            </div>
+          
+            <div class="product-content">
+                <a href="{% url 'cartDetail' item.id %}">
+               <h1>{{item.product_name}}</h1>
+               <h4>34% GetOFF</h4>
+               <h3>RS:{{item.price}}</h3>
+               <h5>free delivery</h5>
+               <a href="{% url 'AddtoCart' item.id %}"><button>Add to cart</button></a>
+               <a href="{% url 'buy' item.id %}"> <button>Buy Now</button></a>
+            </a>
+             </div>
+         
+    
+        </div>
+       {% endfor %}
+    </section>
+{% endblock %}
+{% block footer %}{% endblock %}

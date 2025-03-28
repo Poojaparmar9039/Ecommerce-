@@ -1,0 +1,23 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}hello{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'best.css' %}">
+<section>
+    {% for p in random_image %}  
+        <div class="product-card">
+           <a href="{% url 'cartDetail' p.id %}">
+            <img src="{{p.image.url}}" alt="">
+            <h1>{{p.product_name}}</h1>
+            <h4>{{p.desc}}</h4>
+            <h3>24% Get off</h3>
+            <h5>Delivery within 2 days</h5>
+            <a  href="{% url 'AddtoCart' p.id %}"><button>Add to Cart</button></a>
+           </a>
+        </div>     
+    {% endfor %}
+</section>
+
+{% endblock %}
+{% block footer %}{% endblock %}

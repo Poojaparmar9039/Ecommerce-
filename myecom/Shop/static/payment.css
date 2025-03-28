@@ -1,0 +1,257 @@
+/* Container Layout */
+section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.payment-details {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.payment-details::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #ff9900, #ffbb51);
+}
+
+/* Heading Styles */
+.payment-details h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.payment-details h4 {
+    font-size: 1rem;
+    color: #666;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.payment-details h4:first-of-type {
+    margin-top: 0;
+}
+
+/* Form Styling */
+.payment-details form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Payment Options */
+.pay, .more-payments {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.payment-option {
+    position: relative;
+}
+
+/* Hide default radio buttons */
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Style for labels (payment options) */
+.payment-option label {
+    display: block;
+    padding: 12px 15px;
+    padding-right: 50px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    position: relative;
+}
+
+.payment-option label:hover {
+    background-color: #f0f9ff;
+    border-color: #bbd5e9;
+}
+
+/* Custom radio button design */
+.payment-option label::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.2s ease;
+}
+
+/* Selected radio style */
+.payment-option input[type="radio"]:checked + label {
+    border-color: #ff9900;
+    background-color: #fff8e6;
+    font-weight: 600;
+}
+
+.payment-option input[type="radio"]:checked + label::after {
+    border-color: #ff9900;
+    background-color: #ff9900;
+    box-shadow: inset 0 0 0 4px white;
+}
+
+/* Card Section */
+.card-section {
+    margin-bottom: 1rem;
+}
+
+.card {
+    position: relative;
+}
+
+.card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.card label {
+    display: block;
+    padding: 1.5rem;
+    padding-right: 50px;
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.card label:hover {
+    border-color: #ff9900;
+    background-color: #fff8e6;
+}
+
+.card label::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.2s ease;
+}
+
+.card input[type="radio"]:checked + label {
+    border-color: #ff9900;
+    background-color: #fff8e6;
+    border-style: solid;
+    font-weight: 600;
+}
+
+.card input[type="radio"]:checked + label::after {
+    border-color: #ff9900;
+    background-color: #ff9900;
+    box-shadow: inset 0 0 0 4px white;
+}
+
+/* Button Styling */
+.action-buttons {
+    margin-top: 2rem;
+}
+
+.payment-details button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(255, 153, 0, 0.3);
+}
+
+.payment-details button:hover {
+    background-color: #e68a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 153, 0, 0.4);
+}
+
+.payment-details button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(255, 153, 0, 0.4);
+}
+
+.payment-details a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .payment-details {
+        padding: 1.8rem;
+    }
+    
+    .payment-details button {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        margin: 1.5rem auto;
+    }
+    
+    .payment-details {
+        padding: 1.2rem;
+        border-radius: 10px;
+    }
+    
+    .payment-details h1 {
+        font-size: 1.5rem;
+    }
+    
+    .payment-option label,
+    .card label {
+        padding: 10px 45px 10px 10px;
+        font-size: 0.95rem;
+    }
+}

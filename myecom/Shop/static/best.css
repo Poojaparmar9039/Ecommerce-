@@ -1,0 +1,140 @@
+section {
+    margin: 10px auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+/* Main heading */
+section > h1 {
+    grid-column: 1 / -1;
+    font-size: 2rem;
+    color: #232f3e;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ffd814;
+    display: inline-block;
+}
+
+/* Product container */
+section > * {
+    background: white;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+section > *:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+section img {
+    width: 100%;
+    height: 200px;
+    object-fit:contain;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Product title */
+section h1:not(:first-of-type) {
+    font-size: 1.1rem;
+    color: #232f3e;
+    margin: 10px 0;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+  
+}
+
+/* Discount */
+section h3 {
+    color: #cc0c39;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #fff0f0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+/* Delivery info */
+section h5 {
+    color: #007600;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Button styling */
+section a {
+    text-decoration: none;
+    width: 100%;
+    margin-top: auto;
+}
+
+
+section button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #ffd814;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #232f3e;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+section button:hover {
+    background-color: #f7ca00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    section img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    section img {
+        height: 160px;
+    }
+}

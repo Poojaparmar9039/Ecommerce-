@@ -1,0 +1,162 @@
+/* Container Layout */
+section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.details-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 2.5rem;
+    position: relative;
+}
+
+.details-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #ff9900, #ffbb51);
+}
+
+/* Form Styling */
+.shipping-address {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.shipping-address form {
+    display: flex;
+    flex-direction: column;
+}
+
+.shipping-address form::before {
+    content: "Shipping Information";
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Form Inputs */
+.shipping-address label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    margin-top: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.shipping-address input {
+    padding: 1rem 1.2rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+.shipping-address input:focus {
+    outline: none;
+    border-color: #ff9900;
+    box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.2);
+    background-color: #ffffff;
+}
+
+.shipping-address label:has(+ input:focus) {
+    color: #ff9900;
+}
+
+/* Button Styling */
+.shipping-address button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 2.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(255, 153, 0, 0.3);
+}
+
+.shipping-address button:hover {
+    background-color: #e68a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 153, 0, 0.4);
+}
+
+.shipping-address button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(255, 153, 0, 0.4);
+}
+
+.shipping-address a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+/* Input types specific styling */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Animated focus effect */
+.shipping-address input:focus {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(255, 153, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 153, 0, 0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .details-container {
+        padding: 1.8rem;
+    }
+    
+    .shipping-address button {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        margin: 1.5rem auto;
+    }
+    
+    .details-container {
+        padding: 1.2rem;
+        border-radius: 10px;
+    }
+    
+    .shipping-address input {
+        padding: 0.9rem;
+    }
+    
+    .shipping-address form::before {
+        font-size: 1.5rem;
+    }
+}

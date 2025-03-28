@@ -1,0 +1,53 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Add product to Cart {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'AddtoCart.css' %}">
+      <section>
+        <h1>Shopping Cart</h1>
+        <div class="container">
+           {% for product in cartlist %}
+           <div class="add-product">
+            <div class="product-image">
+            <img src="{{ product.image.url }}" alt="">
+            </div>
+            <div class="product-content">
+             <h1>{{product.product_name}} | {{product.desc}} | {{product.category}}</h1>
+             <h2>Rs: {{product.price}}</h2>
+             <h6>Best seller</h6>
+             <h5>Eligible for free shipping</h5>
+             <h3>Quantity:1</h3>
+             <button><a href="{% url 'deletecart' product.id %}">Delete</a></button>
+             <button><a href="{% url 'buy' product.id %}">Buy Now</a></button>    
+            </div>
+         </div>
+           {% endfor %}
+        </div>
+      </section>
+      <aside>
+       <div class="side-container">
+        <h6>part of your order qualifies for free shipping </h6>
+        <h2>Subtotal(items):Rs {{ total_price }}</h2>
+       
+        <select name="" id="">
+            <option value="">select payment</option>
+            <option value="">EMI</option>
+            <option value="">UPI</option>
+            <option value="">Cash on delivery</option>
+            <option value="">paytm</option>
+        </select>
+        <!-- <a href=""><button>proceed to buy</button></a> -->
+        <a href="{% url 'place_order_cart' %}?ids={% for product in cartlist %}{{ product.id }}{% if not forloop.last %},{% endif %}{% endfor %}">
+          <button>Proceed to Buy</button>
+      </a>
+      
+      
+      
+       </div>
+      </aside>
+    {% endblock %}
+    {% block footer %}{% endblock %}
+
+    {% block scripts %}
+    <script src="{% static 'addtocart.js' %}"></script>  <!-- Link the JS file -->
+{% endblock %}

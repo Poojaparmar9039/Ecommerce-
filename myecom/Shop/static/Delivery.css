@@ -1,0 +1,71 @@
+
+section {
+  
+    background-color: #f9f9f9;
+}
+section h1 {
+    text-align: center;
+    color: #232f3e;
+    margin-top: 30px;
+    font-size: 2.5rem;
+    border-bottom: 3px solid #ffd814;
+    padding-bottom: 10px;
+}
+
+/* List Styling */
+section ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 15px auto;
+}
+
+section ul li {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+section ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Update Details Styling */
+section ul li strong {
+    color: #232f3e;
+    display: inline-block;
+    width: 130px;
+    margin-right: 10px;
+}
+
+section ul li br {
+    margin-bottom: 10px;
+}
+
+/* No Updates Message */
+section p {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-top: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    section h1 {
+        font-size: 2rem;
+    }
+
+    section ul li {
+        padding: 15px;
+    }
+
+    section ul li strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+}

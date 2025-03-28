@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Main cart detail section */
+.Cart-detail {
+    display: flex;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 83vh;
+    
+}
+
+.cart-image {
+    flex: 0 0 50%;
+    position: relative;
+    padding: auto;
+}
+
+.cart-image img {
+    width: 95%;
+    height: 90%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.cart-image:hover img {
+    transform: scale(1.03);
+}
+
+.card-content {
+    flex: 0 0 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-content h1 {
+    font-size: 2rem;
+    color: #232f3e;
+    margin-bottom: 10px;
+}
+
+.card-content h2 {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: normal;
+    border-bottom: 2px solid #ffd814;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Container for buttons */
+.buttons {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* General anchor styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Target buttons inside the anchors */
+.buttons a button {
+    flex: 1;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+/* Wishlist button (first anchor's button) */
+.buttons a:first-child button {
+    background-color: white;
+    border: 2px solid #232f3e;
+    color: #232f3e;
+}
+
+/* Wishlist button hover effect */
+.buttons a:first-child button:hover {
+    background-color: #232f3e;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add to Cart button (last anchor's button) */
+.buttons a:last-child button {
+    background-color: #ffd814;
+    border: 2px solid #ffd814;
+    color: #232f3e;
+    margin-top: 7px;
+}
+
+/* Add to Cart button hover effect */
+.buttons a:last-child button:hover {
+    background-color: #f7ca00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for button width inside flex container */
+.buttons a {
+    flex: 1;
+    display: block;
+}
+
+/* Product offers section */
+.product-offer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    
+    padding: 20px;
+}
+
+.product-offer div {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-offer h1 {
+    color: #232f3e;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-offer p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.product-offer h6 {
+    color: #007185;
+    cursor: pointer;
+}
+
+/* Product policy section */
+.product-policy {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-policy div {
+    text-align: center;
+    padding: 15px;
+}
+
+.product-policy img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.product-policy p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .Cart-detail {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .product-offer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .Cart-detail {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .cart-image, 
+    .card-content {
+        flex: 0 0 100%;
+    }
+    
+    .cart-image {
+        height: 300px;
+    }
+    
+    .product-offer {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-policy {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .Cart-detail {
+        width: 100%;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 0;
+    }
+    
+    .cart-image {
+        height: 250px;
+        padding: 15px;
+    }
+    
+    .product-policy {
+        grid-template-columns: 1fr;
+    }
+    
+    .buttons {
+        flex-direction: column;
+    }
+}

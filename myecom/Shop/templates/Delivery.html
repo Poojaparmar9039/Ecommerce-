@@ -1,0 +1,29 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Delivery status{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'Delivery.css' %}">
+
+    <section>
+
+        <h1>Recent Delivery Updates</h1>
+
+{% if updates %}
+    <ul>
+        {% for update in updates %}
+            <li>
+                <strong>Order ID:</strong> {{ update.order.order_no }} <br>
+                <strong>Product Name:</strong> {{ update.order.product_name }} <br>
+                <strong>Update:</strong> {{ update.update_desc }} <br>
+                <strong>Date:</strong> {{ update.timestamp }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No recent updates available.</p>
+{% endif %}
+
+    </section>
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}order Details {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Address.css' %}">
+    <section>
+        <div class="details-container">
+            <div class="shipping-address">
+              <form action="{% url 'addressDetail' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <label for="name">Enter your Full Name</label>
+              <input type="text" name="fullname">
+              <label for="street">Enter street address</label>
+              <input type="text" name="street">
+              <label for="block">Enter apartment number | block | building</label>
+              <input type="text" name="block">
+              <label for="city">Enter city name</label>
+              <input type="text" name="city">
+              <label for="state">Enter state</label>
+              <input type="text" name="state">
+              <label for="zip">Enter pin code</label>
+              <input type="number" name="zip">
+              <label for="phone">Enter phone number</label>
+              <input type="number" name="phone">
+              <label for="email">Enter your email</label>
+              <input type="email" name="email">
+              <button type="submit">Continue</button>
+              </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

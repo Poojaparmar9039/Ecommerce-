@@ -1,0 +1,67 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}product Details {% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'cartDetail.css' %}">
+
+        <div class="Cart-detail">
+            <div class="cart-image">
+             <img src="{{ product.image.url }}" alt="">
+            </div>
+            <div class="card-content">
+             <h1>{{product.product_name}}</h1>
+             <h2>{{product.category}}({{product.subcategory}}) </h2>
+             <p>{{product.desc}}</p>
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eos praesentium voluptates laboriosam, placeat esse reprehenderit sapiente quidem debitis doloribus autem temporibus architecto. Dicta quaerat dolorum saepe doloremque incidunt debitis.</p>
+             <p>{{product.pub_date}}</p>
+             <h1>Rs.{{product.price}}</h1>
+             <div class="buttons">
+                <a href="{% url 'wishlist' product.id %}"><button>Wishlist</button></a>
+                <a  href="{% url 'AddtoCart' product.id %}"><button> Add to Cart</button></a>
+            </div>
+            </div>
+            
+         </div>
+         <div class="product-offer">
+            <div>
+                <h1>Cashback</h1>
+                <p>Upto Rs 399 offer cashback as shopify pay balance when</p>
+                <h6>see offer</h6>
+            </div>
+            <div>
+                <h1>Bankoffer</h1>
+                <p>Upto Rs 22399 bank offer as shopify discount on select cards</p>
+                <h6>3 see offer</h6>
+            </div>
+            <div>
+                <h1>UPI Offers</h1>
+                <p>Upto Rs 4589 offer cashback as amazon pay balance when</p>
+                <h6>see offer</h6>
+            </div>
+         </div>
+        <div class="product-policy">
+            <div>
+                <img src="" alt="">
+                <p>7 Days service center replacement</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>Free delivery</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>1 year warranty</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>Cash/pay on delivery</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>product delivered</p>
+            </div>
+        </div>
+        {% endblock %}
+        {% block footer %}{% endblock %}
+

@@ -1,0 +1,48 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block title %}Add product to Cart {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'buy.css' %}">
+<div class="container">
+    <section class="product-section">
+        <div class="product-image">
+            <img src="{{product.image.url}}" alt="Product Name" />
+        </div>
+        
+        <div class="product-details">
+            <h1>{{product.product_name}}</h1>
+            <p class="price">${{product.price}}</p>
+            <p>Transform your 23% with our innovative {{product.product_name}}. Designed to main value proposition, this {{product.product_name}} is perfect for target audience {{product.desc}}.</p>
+            
+            <div class="features">
+                <div class="feature-item">Premium Quality Materials</div>
+                <div class="feature-item">30-Day Money Back Guarantee</div>
+                <div class="feature-item">Free Shipping Worldwide</div>
+                <div class="feature-item">24/7 Customer Support</div>
+            </div>
+
+            <a href="{% url 'payment' product.id %}"><button class="buy-button">Select payment type</button></a>
+            <div class="guarantee">
+                <h3>100% Satisfaction Guaranteed</h3>
+                <p>Try it risk-free for 30 days. If you're not completely satisfied, we'll give you a full refund.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonial">
+            <p>"This product exceeded my expectations. The quality is outstanding and the results are amazing!"</p>
+            <strong>- Sarah J.</strong>
+        </div>
+        <div class="testimonial">
+            <p>"Best purchase I've made this year. Customer service was excellent and delivery was quick."</p>
+            <strong>- James</strong>
+        </div>
+        <div class="testimonial">
+            <p>"I've tried many similar products, but this one stands out. Highly recommended!"</p>
+            <strong>- David L.</strong>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

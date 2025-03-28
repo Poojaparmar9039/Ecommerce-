@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Home.css' %}">
+    <title>{% block title %}Ecommerce {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav id="first-nav">
+            <ul>
+              <li id="logo"><img src="{% static 'media/icon-for-product-24.jpg' %}" alt="" height="70px">My shopify</li>
+               <li> <a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">shop</a></li>
+                <form method="GET" action="{% url 'search' %}">
+                    <input type="text" name="search" placeholder="Search here...">
+                    <button type="submit">Search</button>
+                </form>
+                <a href="{% url 'viewcart' %}"><li></li></a>
+                <li><a href="{% url 'viewlist' %}">Wishlist</a></li>
+                <li><a href="{% url 'order_update' %}">Delivery</a></li>
+               
+                <li><a href="">Account</a></li>
+            </ul>
+        </nav>
+        <nav id="second-nav">
+            <ul>
+                <li><a href="{% url 'product_category' 'Footwear' %}">Footwear</a></li>
+                <li><a href="{% url 'product_category' 'cosmetics' %}">cosmetics</a></li>
+                <li><a href="{% url 'product_category' 'Electronics' %}">Mobiles</a></li>
+                <li><a href="{% url 'best_seller' %}">Today's Deal</a></li>
+                <li><a href="{% url 'product_category' 'Arts' %}">Arts</a></li>
+                <li><a href="{% url 'product_category' 'kitchen appliance' %}">Home&Kitchen</a></li>
+                <li><a href="{% url 'product_category' 'Electronics' %}">Laptop</a></li>
+                <li><a href="{% url 'product_category' 'Fashion' %}">Fashion</a></li>
+                <li><a href="{% url 'product_category' 'Electronics' %}">Computer</a></li>
+                <li><a href="{% url 'product_category' 'Vehicle' %}">Car&Bikes</a></li>
+                <li><a href="{% url 'product_category' 'Book' %}">Books</a></li>
+                <li><a href="{% url 'product_category' 'Electronics' %}">Electronic</a></li>
+                <li><a href="{% url 'product_category' 'Gifts' %}">Gifts</a></li>
+                <li><a href="{% url 'product_category' 'Health' %}">Healths</a></li>
+                <li><a href="{% url 'product_category' 'toy' %}">Toys&Games</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!--create a image slider with smooth scroll-->
+        <section>
+            <div class="slider-container">
+                <!-- <button id="left"><</button> -->
+                <div class="slider">
+                    <div class="slide">
+                        {% for product in products %}       
+                        <div class="cart">
+                            <a href="{% url 'cartDetail' product.id %}">
+                            <img src="{{product.image.url}}" alt="">
+                            <h3>{{product.product_name}}</h3>
+                            <h2>{{product.category}} </h2>
+                            <p>{{product.desc}}</p>
+                            <p>Rs.{{product.price}}</p>
+                           
+                        </a>
+                        <a href="{% url 'wishlist' product.id %}"> <button>Wishlist</button></a>  
+                        <a href="{% url 'cartDetail' product.id %}"> <button>Add to Cart</button></a>
+                        </div>
+                        {% endfor %}         
+                    </div>
+                </div>
+                <!-- <button id="right">></button> -->
+            </div>
+        </section>     
+         <section class="categories">
+           <div class="cat">
+            {% for category, products in category_dict.items %}
+            {% if "Electronics" in category %}
+            <div class="category-container">
+                <h1>Up to 70% discount | Best sellers in large applainces nearby you</h1> 
+                <div class="category-products">
+                    {% for product in products|slice:"2:8" %}
+                    <div class="product-card">
+                        <a href="{% url 'cartDetail' product.id %}">
+                           <img src="{{ product.image.url }}" alt="Product Image">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+           </div>
+        </section>
+
+
+
+        <section class="third">
+           {% for p in products|slice:"8:24:2" %}
+           <div class="container-product">
+            <a href="{% url 'cartDetail' p.id %}">
+           
+            <div class="img-container">
+                <img src="{{ p.image.url }}" alt="">
+            </div>
+            <div class="content">
+                <h2>Lamper 100 module Black |Fancy INdoor LED with Clearance Living Room Hall</h2>
+                <h1>Rs {{ p.price }}</h1>
+                <h2>MRP: {{ p.price|add:690 }}</h2>
+            </div>
+            </a>
+        </div>
+           {% endfor %}
+        </section>
+
+
+        <section class="categories">
+            <div class="cat">
+                {% for category, products in category_dict.items %}
+                {% if "cosmetics" in category %}
+                <div class="category-container">
+                    <h2>Purchase {{ category }} upto 35% Discount || and get free item over $3999</h2> 
+                    <div class="category-products">
+                        {% for product in products %}
+                        <div class="product-card">
+                            <a href="{% url 'cartDetail' product.id %}">
+                            <img src="{{ product.image.url }}" alt="Product Image">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+               </div>
+        </section>
+
+
+        <section class="categories">
+            <div class="cat">
+                {% for category, products in category_dict.items %}
+                {% if "Vehicle" in category %}
+                <div class="category-container">
+                    <h1>No cost EMI up to 24 months | Starting ₹4,433 INR/month</h1>
+                    <div class="category-products">
+                        {% for product in products %}
+                        <div class="product-card">
+                            <a href="{% url 'cartDetail' product.id %}">
+                            <img src="{{ product.image.url }}" alt="Product Image">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+               </div>
+        </section>
+
+       
+
+        <section class="categories">
+            <div class="cat">
+                {% for category, products in category_dict.items %}
+                {% if "toy" in category %}
+                <div class="category-container">
+                    <h2>Best Seller in {{ category }} || Games</h2> 
+                    <div class="category-products">
+                        {% for product in products %}
+                        <div class="product-card">
+                            <a href="{% url 'cartDetail' product.id %}">
+                            <img src="{{ product.image.url }}" alt="Product Image">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+               </div>
+        </section>
+
+        <section class="categories">
+            <div class="cat">
+                {% for category, products in category_dict.items %}
+                {% if "Fashion" in category %}
+                <div class="category-container">
+                    <h1>Best Sellers in Clothing & Accessorie</h1>
+                    <div class="category-products">
+                        {% for product in products %}
+                        <div class="product-card">
+                            <a href="{% url 'cartDetail' product.id %}">
+                            <img src="{{ product.image.url }}" alt="Product Image">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+               </div>
+        </section>
+        <section>
+            {% for p in random_item %}
+            <h1>{{p.image.url}}</h1>
+            {% endfor %}
+        </section>
+        {% endblock %}
+    </main>
+    {% block footer %}
+    <footer>
+        <div>
+            <table>
+                <tr>
+                  <th>Get to know us</th>
+                  <th>Connect with us</th>
+                  <th>About us</th>
+                  <th>Let us help you</th>
+                </tr>
+                <tr>
+                  <td>About shopify</td>
+                  <td>connect with phone</td>
+                  <td>Sell on shopify</td>
+                  <td>your account</td>
+                </tr>
+                <tr>
+                  <td>Careeres</td>
+                  <td>Twitter</td>
+                  <td>under accelator</td>
+                  <td>Return center</td>
+                </tr>
+                <tr>
+                    <td>press releases</td>
+                    <td>Facebook</td>
+                    <td>protect and build your brand</td>
+                    <td>Recall and product safety records</td>
+                </tr>
+                <tr>
+                    <td>shopify services</td>
+                    <td>Global Selling</td>
+                    <td>100% purchase protection</td>
+                </tr>
+                <tr>
+                   
+                    <td>Supply to shopify</td>
+                    <td>Download shopify app</td>
+                    <td>Become an affilate</td>
+                </tr>
+                <tr>
+                   
+                    <td>Advertise your product</td>
+                    <td>support</td>
+                    <td>Help</td>
+                </tr>
+
+              </table>
+        </div>
+        <div>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Contact Method</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:support@example.com">support@example.com</a></td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td><a href="tel:+1234567890">+1 (234) 567-890</a></td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>1234 Market Street, Suite 100<br>San Francisco, CA 94103</td>
+                  </tr>
+                  <tr>
+                    <td>Support Hours</td>
+                    <td>Monday - Friday: 9 AM - 5 PM PST</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+        </div>
+    </footer>
+    {% endblock %}
+
+    {% block scripts %}{% endblock %}  
+</body>
+<!-- <script src="{% static 'Home.js' %}"></script> -->
+</html>
