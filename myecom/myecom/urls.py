@@ -4,7 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('Shop.urls')),
+    path('shop/', include('Shop.urls')),
+    path('user/',include('User.urls')),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:

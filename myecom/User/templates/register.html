@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+</head>
+<body>
+    <div>{{ message }}</div>
+    <form action='' method='POST' enctype='multipart/form-data'>
+        {% csrf_token %}
+        <label name='firstName'>Enter the first name</label>
+        <input type='text' name='firstName'>
+        <label name='lastName'>Enter the last name</label>
+        <input type='text' name='lastName'>
+        <label name='email'>Enter your email here</label>
+        <input type='email' name='email'>
+        <label name='phone'>Enter the phone number</label>
+        <input type='number' name='phone'>
+        <label name='password'>Enter your password </label>
+        <input type='password' name='password'>
+        <button type='submit'>Register</button>
+    </form>   
+    <a href="{% url 'login' %}"><button>Login</button></a>
+</body>
+</html>

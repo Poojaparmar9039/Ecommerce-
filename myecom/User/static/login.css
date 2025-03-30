@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #4a6ebd;
+    --secondary-color: #3a5795;
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    color: var(--text-color);
+  }
+  
+  form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1rem;
+  }
+  
+  div {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  div:empty {
+    display: none;
+  }
+  
+  /* Style for error message */
+  div:not(:empty) {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--error-color);
+  }
+  
+  /* Style for success message - add class in your Django view as needed */
+  div.success {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--success-color);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 110, 189, 0.1);
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  form button {
+    width: 100%;
+  }
+  
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  a button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    width: 100%;
+  }
+  
+  a button:hover {
+    background-color: rgba(74, 110, 189, 0.1);
+    color: var(--secondary-color);
+  }
+  
+  /* Fix for the register URL */
+  a[href="{ url 'register' }"] {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    form, a {
+      max-width: 100%;
+    }
+    
+    body {
+      padding: 1rem;
+    }
+  }
