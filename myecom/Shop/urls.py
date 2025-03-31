@@ -4,10 +4,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('',views.home,name='home'),
+    path('home/',views.home,name='home'),
     path('cartDetail/<int:id>/',views.cartDetail,name='cartDetail'),
     path('AddtoCart/<int:id>/',views.AddtoCart,name='AddtoCart'),
     path('wishlist/<int:id>/',views.wishlist,name='wishlist'),
+    path('Account/',views.Account,name='Account'),
     path('deletecart/<int:id>/',views.deletecart,name='deletecart'),
     path('deletelist/<int:id>/',views.deletelist,name='deletelist'),
     path('viewlist/',views.viewlist,name='viewlist'),

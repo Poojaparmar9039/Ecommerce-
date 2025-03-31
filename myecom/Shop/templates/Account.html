@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Account.css' %}">
+    <title>My Account | ShopNow</title>
+</head>
+<body>
+    <header>
+        <div class="container header-wrapper">
+            <a href="#" class="logo">Shopify</a>
+            <nav class="header-nav">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'shop' %}">Shop</a>
+                <a href="{% url 'viewcart' %}">Cart</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container account-container">
+        <aside class="sidebar">
+            <div class="welcome-text">
+                <h2>Hello, John</h2>
+                <p>Welcome back to your account</p>
+            </div>
+            
+            <nav class="account-menu">
+                <ul>
+                    <li><a href="#" class="active"><span class="icon">📊</span> Dashboard</a></li>
+                    <li><a href="#"><span class="icon">📦</span> Orders</a></li>
+                    <!-- <li><a href="#"><span class="icon">🔄</span> Returns</a></li> -->
+                    <li><a href="{% url 'viewlist' %}"><span class="icon">❤️</span> Wishlist</a></li>
+                    <li><a href="#"><span class="icon">🏷️</span> Coupons</a></li>
+                    <li><a href="#"><span class="icon">👤</span> Personal Info</a></li>
+                    <li><a href="{% url 'change_password' %}"><span class="icon">🔑</span> Change Password</a></li>
+                    <li><a href="{% url 'Address' %}"><span class="icon">📍</span> Addresses</a></li>
+                    <li><a href="#"><span class="icon">💳</span> Payment Methods</a></li>
+                    <li><a href="#"><span class="icon">❓</span> Help Center</a></li>
+                    <li><a href="{% url 'logout' %}" class="signout-btn"><span class="icon">🚪</span> Sign Out</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <h1>Account Dashboard</h1>
+            
+            <div class="account-overview">
+                <div class="overview-box">
+                    <h3>Total Orders</h3>
+                    <p>17</p>
+                </div>
+                <div class="overview-box">
+                    <h3>Wishlist Items</h3>
+                    <p>6</p>
+                </div>
+                <div class="overview-box">
+                    <h3>Reviews</h3>
+                    <p>8</p>
+                </div>
+                <div class="overview-box">
+                    <h3>Store Credit</h3>
+                    <p>$25</p>
+                </div>
+            </div>
+            
+            <div class="recent-orders">
+                <h2>Recent Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#A80224</td>
+                            <td>March 25, 2025</td>
+                            <td>$127.99</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                            <td><a href="#" class="view-btn">View Order</a></td>
+                        </tr>
+                        <tr>
+                            <td>#A80211</td>
+                            <td>March 18, 2025</td>
+                            <td>$56.50</td>
+                            <td><span class="status processing">Processing</span></td>
+                            <td><a href="#" class="view-btn">View Order</a></td>
+                        </tr>
+                        <tr>
+                            <td>#A80198</td>
+                            <td>March 10, 2025</td>
+                            <td>$94.25</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                            <td><a href="#" class="view-btn">View Order</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

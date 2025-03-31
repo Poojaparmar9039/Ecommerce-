@@ -11,18 +11,18 @@
     <header>
         <nav id="first-nav">
             <ul>
-              <li id="logo"><img src="{% static 'media/icon-for-product-24.jpg' %}" alt="" height="70px">My shopify</li>
+              <li id="logo"><img src="{% static 'media/icon-for-product-24.jpg' %}" alt="" height="70px"><a href="{% url 'Account' %}">My shopify</a></li>
                <li> <a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'shop' %}">shop</a></li>
                 <form method="GET" action="{% url 'search' %}">
                     <input type="text" name="search" placeholder="Search here...">
                     <button type="submit">Search</button>
                 </form>
-                <a href="{% url 'viewcart' %}"><li></li></a>
+               
                 <li><a href="{% url 'viewlist' %}">Wishlist</a></li>
                 <li><a href="{% url 'order_update' %}">Delivery</a></li>
-               
-                <li><a href="">Account</a></li>
+                <a href="{% url 'viewcart' %}"><li></li></a>
+                <!-- <li><a href="">Account</a></li> -->
             </ul>
         </nav>
         <nav id="second-nav">

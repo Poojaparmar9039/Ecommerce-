@@ -16,8 +16,11 @@
         <label name='password'>Enter your password </label>
         <input type='password' name='password'>
         <button type='submit'>Login</button>
+        <a href="{% url 'forgot_password' %}"><p>Forgot password?</p></a>
     </form>
+    <div style="color: rgba(0, 0, 255, 0.626);">If not registered ? please register....</div>
     <a href="{% url 'register' %}"><button>Register</button></a>
+
     
 </body>
 </html>

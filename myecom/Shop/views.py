@@ -2,8 +2,16 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import product,address,order_details,delivery_update
 import random
+from User.utils.decorators import login_required_custom
 
 
+def index(request):
+    if request.user.is_authenticated:
+        return redirect("home")  
+    else:
+        return redirect("login")  
+
+@login_required_custom
 def home(request):
     products =product.objects.all()
     random_image=list(product.objects.order_by('?')[:4])
@@ -13,12 +21,18 @@ def home(request):
         category_dict[cat] = product.objects.filter(category=cat)
     return render(request, 'home.html', {'products':products,'category_dict': category_dict,'random':random_image})
 
+@login_required_custom
+def Account(request):
+    return render(request,'Account.html')
+
+@login_required_custom
 def cartDetail(request,id):
     product_obj=product.objects.get(id=id)
     print("------------------------",product_obj)
     return render(request,'cartDetail.html',{'product':product_obj})
 
 #--------------------------------------------add delete and view cart-----------------------------------------------
+@login_required_custom
 def AddtoCart(request,id):
     products=product.objects.get(id=id)
     cartlist=request.session.get('cartlist',[])
@@ -33,6 +47,7 @@ def AddtoCart(request,id):
     return render(request,'AddtoCart.html',{'cartlist':items,'cart_num':cart_num,'total_price':total_price})
 
 
+@login_required_custom
 def deletecart(request,id):
     cartlist=request.session.get('cartlist')
     try:
@@ -45,6 +60,7 @@ def deletecart(request,id):
     request.session.modified=True
     return redirect('viewcart')
 
+@login_required_custom
 def viewcart(request):
     cartlist = request.session.get('cartlist', [])
     cart_products = product.objects.filter(id__in=cartlist)
@@ -52,6 +68,7 @@ def viewcart(request):
 
 #-------------------------------------------------------add ,delete and view the wishlist--------------------------
 
+@login_required_custom
 def wishlist(request,id):
     item=product.objects.get(id=id)
     list=request.session.get('list',[])
@@ -62,6 +79,8 @@ def wishlist(request,id):
     item=product.objects.filter(id__in=list) 
     return render(request,'wishlist.html',{'list':item})
 
+
+@login_required_custom
 def deletelist(request,id):
     item=product.objects.get(id=id)
     list=request.session.get('list')
@@ -72,42 +91,53 @@ def deletelist(request,id):
     item=product.objects.filter(id__in=list)
     return redirect('viewlist')
 
+@login_required_custom
 def viewlist(request):
     list = request.session.get('list', [])
     cart_products = product.objects.filter(id__in=list)
     return render(request, 'wishlist.html', {'list': cart_products})
 
 #-----------------------------------------------category------------------------------------------
-
+@login_required_custom
 def product_category(request,category):
     category_item=product.objects.filter(category=category)
     return render(request,'category.html',{'category':category_item})
 
 #------------------------------------------random image--------------------------------------------
+@login_required_custom
 def best_seller(request):
     random_image=list(product.objects.order_by('?')[:15])
     return render(request,'best.html',{'random_image':random_image})
+
 #--------------------------------------------------------------------------------------------------
+
+@login_required_custom
 def shop(request):
     random_image=list(product.objects.order_by('?')[:30])
     return render(request,'shop.html',{'random_image':random_image})
 
+
+@login_required_custom
 def buy(request,id):
     item=product.objects.get(id=id)
     return render(request,'Buy.html',{'product':item})
 
 #-------------------------------------order details-------------------------------------------------
 
+@login_required_custom
 def payment(request,id):
     item=product.objects.get(id=id)
     return render(request,'payment.html',{'item':item})
 
+@login_required_custom
 def place_order(request,id):
     item=product.objects.get(id=id)
     order=order_details(product_id=item.id,product_name=item.product_name)
     order.save()
     return render(request,'placeorder.html',{'item':item})
 
+
+@login_required_custom
 def place_order_cart(request):
     product_ids = request.GET.get('ids')   
     print("Product IDs received:", product_ids)
@@ -126,21 +156,26 @@ def place_order_cart(request):
 
 
 
-
+@login_required_custom
 def successful(request):
     return render(request,'successful.html')
 #--------------------------------------search category---------------------------------------
+
+@login_required_custom
 def search(request):
     query=request.GET.get('search','')
     category=product.objects.filter(category__icontains=query)
     return render(request,'category.html',{'category':category})
 
 #-------------------------------------address details of user--------------------------------
-   
+
+@login_required_custom 
 def Address(request):
     return render(request,'Address.html')
 
 
+
+@login_required_custom
 def addressDetail(request):
     fullname=request.POST.get('fullname')
     street=request.POST.get('street')
@@ -158,6 +193,7 @@ def addressDetail(request):
 
 #------------------------------------order details------------------------------------------------------------
 
+@login_required_custom
 def order_update(request):
     updates = delivery_update.objects.filter(order__in=order_details.objects.all()).order_by('-timestamp')[:5]  
     return render(request, 'Delivery.html', {'updates': updates})
