@@ -81,11 +81,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecom',
         'USER': 'root',
-        'PASSWORD': '123456@pooja',
+        'PASSWORD': '00000000',
         'HOST': '127.0.0.1',  # Use '127.0.0.1' for local development
         'PORT': '3306',  # Default MySQL port
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES     ......'"
         }
     }
 }
